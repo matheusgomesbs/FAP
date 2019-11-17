@@ -1,0 +1,32 @@
+/*
+*
+* @NameFile style.css
+* @Author Matheus Gomes, Laryssa Bezerra
+* @Email matheusgomesbs@aluno.fapce.edu.br, laryssabezerra@aluno.fapce.edu.br
+* @To FAPCE - Matematica Computacional I
+* Responsive to 320px, 576px, 768px, 992px, 1200px, 1400px, 1600px, 1920px
+*
+*/
+
+body {
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  background-color: #fff;
+  color: #242424;
+}
+
+/* General */
+a {
+  transition: .3s ease-in !important;
+}
+
+.jumbotron strong{
+  font-weight: bold;
+}
+
+.input-group-text {
+  background: transparent;
+  border: transparent;
+  font-size: 0.8em;
+}
