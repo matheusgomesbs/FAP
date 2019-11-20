@@ -7,11 +7,11 @@ window.onload = event => {
   let addColumn = pegarElemento('.addColumn', false);
   let removeColumn = pegarElemento('.removeColumn', false);
 
-  formSistemaLinear.onsubmit = (e) => {
+  formSistemaLinear.onclick = (e) => {
     e.preventDefault();
     let campos = pegarElemento(".formSistemaLinear input[name*='s-']");
     let matriz = matrizQuadrada(3);
-    let acao = e.explicitOriginalTarget.dataset.action;
+    let acao = e.target.dataset.action;
 
     matriz = preencherMatriz(campos, matriz);
 
@@ -21,14 +21,12 @@ window.onload = event => {
     return false;
   }
 
-  form.onsubmit = (e) => {
-    e.preventDefault();
-
+  form.onclick = (e) => {
     let camposA = pegarElemento(".formMatriz input[name*='a-']");
     let matrizA = matrizQuadrada(pegarElemento(".formMatriz input[name*='a-0-']").length);
     let camposB = pegarElemento(".formMatriz input[name*='b-']");
     let matrizB = matrizQuadrada(pegarElemento(".formMatriz input[name*='b-0-']").length);
-    let acao = e.explicitOriginalTarget.dataset.action;
+    let acao = e.target.dataset.action;
 
     matrizA = preencherMatriz(camposA, matrizA);
     matrizB = preencherMatriz(camposB, matrizB);
