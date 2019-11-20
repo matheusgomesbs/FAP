@@ -1,17 +1,23 @@
 window.onload = event => {
-  //pegarElemento("input").forEach(el => { el.value = Math.ceil(Math.random() * 10); });
+  let dataAction = null;
+  pegarElemento("input").forEach(el => { el.value = Math.ceil(Math.random() * 10); });
   pegarElemento(".limpar", false).onclick = () => { pegarElemento('.content', false).innerHTML = ''; };
+
+  $(".btn-success").on('click', function(){
+    dataAction = $(this).data('action');
+  });
 
   let form = pegarElemento(".formMatriz", false);
   let formSistemaLinear = pegarElemento(".formSistemaLinear", false);
   let addColumn = pegarElemento('.addColumn', false);
   let removeColumn = pegarElemento('.removeColumn', false);
 
-  formSistemaLinear.onclick = (e) => {
+  formSistemaLinear.onsubmit = (e) => {
     e.preventDefault();
+    
     let campos = pegarElemento(".formSistemaLinear input[name*='s-']");
     let matriz = matrizQuadrada(3);
-    let acao = e.target.dataset.action;
+    let acao = dataAction;
 
     matriz = preencherMatriz(campos, matriz);
 
@@ -21,12 +27,14 @@ window.onload = event => {
     return false;
   }
 
-  form.onclick = (e) => {
+  form.onsubmit = (e) => {
+    e.preventDefault();
+
     let camposA = pegarElemento(".formMatriz input[name*='a-']");
     let matrizA = matrizQuadrada(pegarElemento(".formMatriz input[name*='a-0-']").length);
     let camposB = pegarElemento(".formMatriz input[name*='b-']");
     let matrizB = matrizQuadrada(pegarElemento(".formMatriz input[name*='b-0-']").length);
-    let acao = e.target.dataset.action;
+    let acao = dataAction;
 
     matrizA = preencherMatriz(camposA, matrizA);
     matrizB = preencherMatriz(camposB, matrizB);
