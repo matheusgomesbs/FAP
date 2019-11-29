@@ -254,7 +254,8 @@ void filtrar(int order) {
 
 
 void limparTela() {
-  printf("\e[2J\e[0;0H");
+  //printf("\e[2J\e[0;0H");
+  system("clear || cls");
 }
 
 void mensagem(char msg[]) {
